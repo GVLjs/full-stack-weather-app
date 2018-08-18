@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.0.4",
+    "core-js": "^2.5.7",
+    "dark-sky": "^1.1.4",
+    "dotenv": "^6.0.0",
+    "graphql": "^0.13.2",
+    "nodemon": "^1.18.3"
+  }
+}
