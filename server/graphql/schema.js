@@ -1,7 +1,23 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
-  type Forecast {
+  type PhotoLocation {
+    title: String
+    name: String
+    city: String
+    country: String
+  }
+
+  type Photo {
+    color: String
+    width: Int
+    height: Int
+    full: String
+    regular: String
+    location: PhotoLocation
+  }
+
+  type Weather {
     summary: String
     icon: String
     temperature: Float
@@ -9,9 +25,10 @@ module.exports = gql`
     apparentTemperature: Float
     precipIntensity: Float
     precipProbability: Float
+    photo: Photo
   }
 
   type Query {
-    forecast(lng: Float!, lat: Float!): Forecast
+    weather(lng: Float!, lat: Float!): Weather
   }
 `
