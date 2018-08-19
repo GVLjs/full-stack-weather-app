@@ -15,6 +15,16 @@ const unsplash = new Unsplash({
   secret: UNSPLASH_SECRET_KEY
 })
 
+const resolveWeatherPhoto = weather => async () => {
+  const photoQuery = weather.icon.replace("-", " ")
+  const photoResult = await toJson(
+    await unsplash.photos.getRandomPhoto({
+      query: photoQuery
+    })
+  )
+  return { ...photoResult, ...photoResult.urls }
+}
+
 const resolvers = {
   Query: {
     weather: async (_, args) => {
@@ -23,22 +33,9 @@ const resolvers = {
         .options({ latitude: args.lat, longitude: args.lng })
         .get()
       const weather = data.currently
-
-      // get a nice photo
-      const photoQuery = weather.icon.replace("-", " ")
-      console.log({ photoQuery })
-      const photoResult = await toJson(
-        await unsplash.photos.getRandomPhoto({
-          query: photoQuery
-        })
-      )
-
-      console.dir(photoResult)
-
-      // mash it all together and return!
       return {
         ...weather,
-        photo: { ...photoResult, ...photoResult.urls }
+        photo: resolveWeatherPhoto(weather)
       }
     }
   }
