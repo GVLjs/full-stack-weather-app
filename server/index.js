@@ -10,10 +10,10 @@ const server = new ApolloServer({
     settings: {
       "editor.cursorShape": "line"
     }
+  },
+  engine: {
+    apiKey: process.env.ENGINE_API_KEY
   }
-  // engine: {
-  //   apiKey: process.env.ENGINE_API_KEY
-  // }
 })
 
 // This `listen` method launches a web-server.  Existing apps
