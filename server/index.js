@@ -1,4 +1,4 @@
-// require("dotenv").config()
+require("now-env")
 const { ApolloServer } = require("apollo-server")
 const typeDefs = require("./graphql/schema")
 const resolvers = require("./graphql/resolvers")
@@ -10,6 +10,10 @@ const server = new ApolloServer({
     settings: {
       "editor.cursorShape": "line"
     }
+  },
+  tracing: true,
+  cacheControl: {
+    defaultMaxAge: 5
   },
   engine: {
     apiKey: process.env.ENGINE_API_KEY

@@ -26,6 +26,7 @@ module.exports = gql`
     precipIntensity: Float
     precipProbability: Float
     photo: Photo
+    location: String
   }
 
   type Query {
