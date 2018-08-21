@@ -4,6 +4,6 @@
     "UNSPLASH_ACCESS_KEY": "@fsw-unsplash-access-key",
     "UNSPLASH_SECRET_KEY": "@fsw-unsplash-secret-key",
     "DARKSKY_API_KEY": "@fsw-darksky-api-key",
-    "GOOGLE_MAPS_API_KEY": "@fsw-google-api-key"
+    "MAPBOX_API_KEY": "@fsw-mapbox-api-key"
   }
 }

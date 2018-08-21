@@ -1,4 +1,5 @@
 require("now-env")
+global.fetch = require("node-fetch")
 const { ApolloServer } = require("apollo-server")
 const typeDefs = require("./graphql/schema")
 const resolvers = require("./graphql/resolvers")
@@ -12,9 +13,7 @@ const server = new ApolloServer({
     }
   },
   tracing: true,
-  cacheControl: {
-    defaultMaxAge: 5
-  },
+  cacheControl: true,
   engine: {
     apiKey: process.env.ENGINE_API_KEY
   }

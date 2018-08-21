@@ -1,0 +1,135 @@
+{
+  "data": {
+    "weather": {
+      "summary": "Mostly Cloudy",
+      "icon": "partly-cloudy-day",
+      "precipIntensity": 0,
+      "temperature": 76.93,
+      "apparentTemperature": 78.31,
+      "photo": {
+        "full": "https://images.unsplash.com/photo-1445233846336-ebb8ce3387c6?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjM0Mzc1fQ&s=e62af6d95ef0a32237b272f411e84ca9"
+      },
+      "location": {
+        "city": "Greenville",
+        "state": "South Carolina",
+        "country": "United States"
+      }
+    }
+  },
+  "extensions": {
+    "tracing": {
+      "version": 1,
+      "startTime": "2018-08-21T14:41:50.241Z",
+      "endTime": "2018-08-21T14:41:50.693Z",
+      "duration": 451367610,
+      "execution": {
+        "resolvers": [
+          {
+            "path": ["weather"],
+            "parentType": "Query",
+            "fieldName": "weather",
+            "returnType": "Weather",
+            "startOffset": 1483620,
+            "duration": 212917826
+          },
+          {
+            "path": ["weather", "summary"],
+            "parentType": "Weather",
+            "fieldName": "summary",
+            "returnType": "String",
+            "startOffset": 214544003,
+            "duration": 32627
+          },
+          {
+            "path": ["weather", "icon"],
+            "parentType": "Weather",
+            "fieldName": "icon",
+            "returnType": "String",
+            "startOffset": 214626960,
+            "duration": 16046
+          },
+          {
+            "path": ["weather", "precipIntensity"],
+            "parentType": "Weather",
+            "fieldName": "precipIntensity",
+            "returnType": "Float",
+            "startOffset": 214679790,
+            "duration": 14169
+          },
+          {
+            "path": ["weather", "temperature"],
+            "parentType": "Weather",
+            "fieldName": "temperature",
+            "returnType": "Float",
+            "startOffset": 214728153,
+            "duration": 13121
+          },
+          {
+            "path": ["weather", "apparentTemperature"],
+            "parentType": "Weather",
+            "fieldName": "apparentTemperature",
+            "returnType": "Float",
+            "startOffset": 214777985,
+            "duration": 13061
+          },
+          {
+            "path": ["weather", "photo"],
+            "parentType": "Weather",
+            "fieldName": "photo",
+            "returnType": "Photo",
+            "startOffset": 214823934,
+            "duration": 235428981
+          },
+          {
+            "path": ["weather", "location"],
+            "parentType": "Weather",
+            "fieldName": "location",
+            "returnType": "Location",
+            "startOffset": 216504148,
+            "duration": 234648179
+          },
+          {
+            "path": ["weather", "photo", "full"],
+            "parentType": "Photo",
+            "fieldName": "full",
+            "returnType": "String",
+            "startOffset": 450351038,
+            "duration": 27389
+          },
+          {
+            "path": ["weather", "location", "city"],
+            "parentType": "Location",
+            "fieldName": "city",
+            "returnType": "String",
+            "startOffset": 451224166,
+            "duration": 14591
+          },
+          {
+            "path": ["weather", "location", "state"],
+            "parentType": "Location",
+            "fieldName": "state",
+            "returnType": "String",
+            "startOffset": 451271978,
+            "duration": 11668
+          },
+          {
+            "path": ["weather", "location", "country"],
+            "parentType": "Location",
+            "fieldName": "country",
+            "returnType": "String",
+            "startOffset": 451312103,
+            "duration": 9816
+          }
+        ]
+      }
+    },
+    "cacheControl": {
+      "version": 1,
+      "hints": [
+        { "path": ["weather"], "maxAge": 60 },
+        { "path": ["weather", "photo"], "maxAge": 60 },
+        { "path": ["weather", "location"], "maxAge": 0 }
+      ]
+    }
+  }
+}

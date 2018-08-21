@@ -17,7 +17,13 @@ module.exports = gql`
     location: PhotoLocation
   }
 
-  type Weather {
+  type Location {
+    city: String
+    state: String
+    country: String
+  }
+
+  type Weather @cacheControl(maxAge: 60) {
     summary: String
     icon: String
     temperature: Float
@@ -25,8 +31,8 @@ module.exports = gql`
     apparentTemperature: Float
     precipIntensity: Float
     precipProbability: Float
-    photo: Photo
-    location: String
+    photo: Photo @cacheControl(maxAge: 60)
+    location: Location
   }
 
   type Query {
