@@ -1,0 +1,29 @@
+@font-face {
+	font-family: "Rutan";
+	src: url("/fonts/Rutan-Light.eot");
+	src: url("/fonts/Rutan-Light.eot#iefix") format("embedded-opentype"),
+		url("/fonts/Rutan-Light.ttf") format("truetype"),
+		url("/fonts/Rutan-Light.woff") format("woff");
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Rutan";
+	src: url("/fonts/Rutan.eot");
+	src: url("/fonts/Rutan.eot#iefix") format("embedded-opentype"),
+		url("/fonts/Rutan.ttf") format("truetype"),
+		url("/fonts/Rutan.woff") format("woff");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Rutan";
+	src: url("/fonts/Rutan-Bold.eot");
+	src: url("/fonts/Rutan-Bold.eot#iefix") format("embedded-opentype"),
+		url("/fonts/Rutan-Bold.ttf") format("truetype"),
+		url("/fonts/Rutan-Bold.woff") format("woff");
+	font-weight: 600;
+	font-style: normal;
+}
