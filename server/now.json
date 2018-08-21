@@ -1,0 +1,9 @@
+{
+  "env": {
+    "ENGINE_API_KEY": "@fsw-engine-api-key",
+    "UNSPLASH_ACCESS_KEY": "@fsw-unsplash-access-key",
+    "UNSPLASH_SECRET_KEY": "@fsw-unsplash-secret-key",
+    "DARKSKY_API_KEY": "@fsw-darksky-api-key",
+    "GOOGLE_MAPS_API_KEY": "@fsw-google-api-key"
+  }
+}

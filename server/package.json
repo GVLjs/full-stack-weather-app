@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "deploy": "now && now alias full-stack-weather.now.sh"
+  },
+  "dependencies": {
+    "@google/maps": "^0.5.5",
+    "apollo-server": "^2.0.4",
+    "babel-register": "^6.26.0",
+    "core-js": "^2.5.7",
+    "dark-sky": "^1.1.4",
+    "dotenv": "^6.0.0",
+    "graphql": "^0.13.2",
+    "node-fetch": "^2.2.0",
+    "nodemon": "^1.18.3",
+    "now-env": "^3.1.0",
+    "unsplash-js": "^4.8.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0"
+  }
+}
