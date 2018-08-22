@@ -1,4 +1,4 @@
-const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding")
+import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding"
 
 const geocodingClient = mbxGeocoding({
   accessToken: process.env.MAPBOX_API_KEY
@@ -14,7 +14,6 @@ const resolveLocation = async (lng, lat) => {
       .send()
 
     const context = result.body.features[0].context
-    console.log({ context })
     const city = context.filter(c => c.id.indexOf("place") > -1)[0].text
     const country = context.filter(c => c.id.indexOf("country") > -1)[0].text
     const state = context.filter(c => c.id.indexOf("region") > -1)[0].text
@@ -24,4 +23,4 @@ const resolveLocation = async (lng, lat) => {
   }
 }
 
-module.exports = resolveLocation
+export default resolveLocation

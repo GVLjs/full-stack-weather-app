@@ -1,8 +1,7 @@
-require("now-env")
-global.fetch = require("node-fetch")
-const { ApolloServer } = require("apollo-server")
-const typeDefs = require("./graphql/schema")
-const resolvers = require("./graphql/resolvers")
+import "now-env"
+import { ApolloServer } from "apollo-server"
+import typeDefs from "./graphql/schema"
+import resolvers from "./graphql/resolvers"
 
 const server = new ApolloServer({
   typeDefs,

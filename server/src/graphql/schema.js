@@ -1,20 +1,16 @@
 const { gql } = require("apollo-server")
 
-module.exports = gql`
-  type PhotoLocation {
-    title: String
-    name: String
-    city: String
-    country: String
-  }
-
+export default gql`
   type Photo {
     color: String
+    constrastColor: String
     width: Int
     height: Int
     full: String
     regular: String
-    location: PhotoLocation
+    location: String
+    credit: String
+    link: String
   }
 
   type Location {
