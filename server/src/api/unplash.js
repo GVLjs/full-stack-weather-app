@@ -30,7 +30,7 @@ const resolveWeatherPhoto = weather => async () => {
     ...photoResult.urls,
     credit: `${photoResult.user.name} on Unsplash`,
     link: photoResult.links.html,
-    location: photoResult.location.title,
+    location: photoResult.location ? photoResult.location.title : "",
     constrastColor: getContrastYIQ(photoResult.color)
   }
 }
