@@ -6,6 +6,7 @@ const resolveWeather = async (lng, lat) => {
     .options({
       latitude: lat,
       longitude: lng,
+      time: new Date().getTime(),
       exclude: ["minutely", "hourly", "daily", "alerts", "flags"]
     })
     .get()

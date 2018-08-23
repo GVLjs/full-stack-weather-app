@@ -18,7 +18,7 @@ const unsplash = new Unsplash({
 })
 
 const resolveWeatherPhoto = weather => async () => {
-  const photoQuery = weather.icon.replace("-", " ")
+  const photoQuery = weather.icon.replace(/\-/g, " ").toLowerCase()
   const photoResult = await toJson(
     await unsplash.photos.getRandomPhoto({
       query: photoQuery
