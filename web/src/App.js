@@ -21,13 +21,6 @@ const Container = styled.div`
 	.widget-wrapper {
 		position: relative;
 	}
-	@media screen and (max-width: 1024px) {
-		/* Specific to this particular image */
-		img.bg-img {
-			left: 50%;
-			margin-left: -512px; /* 50% */
-		}
-	}
 `;
 
 const WEATHER_QUERY = gql`
@@ -38,6 +31,7 @@ const WEATHER_QUERY = gql`
 			temperature
 			photo {
 				regular
+				full
 				color
 				constrastColor
 				credit
@@ -87,7 +81,7 @@ class App extends React.Component {
 
 						return (
 							<Container>
-								<img className="bg-img" src={data.weather.photo.regular} />
+								<img className="bg-img" src={data.weather.photo.full} />
 								<AppWidget data={data} />
 							</Container>
 						);
