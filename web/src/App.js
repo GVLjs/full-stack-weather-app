@@ -8,26 +8,6 @@ import styled from "styled-components";
 
 import AppWidget from "./components/AppWidget";
 
-const query = gql`
-	query Weather($lng: Float!, $lat: Float!) {
-		weather(lng: $lng, lat: $lat) {
-			summary
-			icon
-			precipIntensity
-			temperature
-			apparentTemperature
-			photo {
-				full
-			}
-			location {
-				city
-				state
-				country
-			}
-		}
-	}
-`;
-
 const Container = styled.div`
 	.bg-img {
 		min-height: 100%;
@@ -50,28 +30,72 @@ const Container = styled.div`
 	}
 `;
 
-const client = new ApolloClient({
-	uri: "https://full-stack-weather.now.sh"
-});
+const WEATHER_QUERY = gql`
+	query WeatherQuery($lng: Float!, $lat: Float!) {
+		weather(lng: $lng, lat: $lat) {
+			summary
+			icon
+			temperature
+			photo {
+				regular
+				color
+				constrastColor
+				credit
+				link
+				location
+			}
+			location {
+				city
+				state
+				country
+			}
+		}
+	}
+`;
 
-function App() {
-	return (
-		<ApolloProvider client={client}>
-			<Query query={query} variables={{ lat: 34.85075, lng: -82.39896 }}>
-				{({ data, error, loading }) => {
-					if (error) return error.message;
-					if (loading) return "Loading...";
+const client = new ApolloClient({ uri: "https://full-stack-weather.now.sh/" });
 
-					return (
-						<Container>
-							<img className="bg-img" src={data.weather.photo.full} />
-							<AppWidget data={data} />
-						</Container>
-					);
-				}}
-			</Query>
-		</ApolloProvider>
-	);
+class App extends React.Component {
+	state = {
+		location: null
+	};
+
+	componentDidMount() {
+		navigator.geolocation.getCurrentPosition(position => {
+			this.setState({ location: position });
+		});
+	}
+
+	render() {
+		const { location } = this.state;
+
+		if (!location) {
+			return null;
+		}
+
+		return (
+			<ApolloProvider client={client}>
+				<Query
+					query={WEATHER_QUERY}
+					variables={{
+						lat: location.coords.latitude,
+						lng: location.coords.longitude
+					}}>
+					{({ loading, error, data }) => {
+						if (loading) return "Loading...";
+						if (error) return error.message;
+
+						return (
+							<Container>
+								<img className="bg-img" src={data.weather.photo.regular} />
+								<AppWidget data={data} />
+							</Container>
+						);
+					}}
+				</Query>
+			</ApolloProvider>
+		);
+	}
 }
 
 export default withData(App);

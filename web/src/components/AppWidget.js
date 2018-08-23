@@ -55,7 +55,7 @@ class AppWidget extends React.Component {
 					<Skycons
 						color="white"
 						icon={icon}
-						autoplay={false}
+						autoplay={true}
 						className="weather-icon"
 					/>
 					<p className="location">
