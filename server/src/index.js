@@ -10,11 +10,6 @@ const server = new ApolloServer({
     settings: {
       "editor.cursorShape": "line"
     }
-  },
-  tracing: true,
-  cacheControl: true,
-  engine: {
-    apiKey: process.env.ENGINE_API_KEY
   }
 })
 

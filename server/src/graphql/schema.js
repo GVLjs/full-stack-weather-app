@@ -19,7 +19,7 @@ export default gql`
     country: String
   }
 
-  type Weather @cacheControl(maxAge: 60) {
+  type Weather {
     summary: String
     icon: String
     temperature: Float
@@ -27,7 +27,7 @@ export default gql`
     apparentTemperature: Float
     precipIntensity: Float
     precipProbability: Float
-    photo: Photo @cacheControl(maxAge: 60)
+    photo: Photo
     location: Location
   }
 
